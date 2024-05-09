@@ -1,0 +1,3 @@
+to compile with linked into a.out:
+ex:
+    gcc 3_struct_union_shapes.c shapes.c
