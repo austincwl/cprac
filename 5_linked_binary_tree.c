@@ -4,14 +4,9 @@
 
 typedef struct node_s{
     int num;
-    struct node_s *lower;
+    struct node_s *lower; //neex 'struct' keyword when using tag name
     struct node_s *higher;
 } node_t;
-
-typedef struct{
-    int num_ele;
-    struct node_t *first;
-} linked_list_t;
 
 void print_arr(int n,int *arr);
 void bubble_sort(int n,int *arr);
@@ -53,6 +48,7 @@ int main(void){
 node_t *create_num_node(int nu){
     node_t *n1_p = (node_t *)malloc(sizeof (node_t));
     n1_p->num = nu;
+    //printf("created new node higher: %d\n",n1_p->higher);
     return n1_p;
 }
 void add_branch_node(node_t *parent,node_t *child){
