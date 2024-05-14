@@ -547,3 +547,107 @@ You can define multi-line marcos by ending every line except for the last with a
 ```
 
 ## Chapter 13: Pointers and Dynamic Data Structures
+
+C allows for pointer arithmetic. pointerp+1 points to the pointer after pointerp
+
+Pointers to pointers (double pointer) is sometimes needed, like when pointers are needed as output parameters
+
+Can pass a function as a function parameter
+```C
+evaluate_three_times(double f(double f_arg), double pt1, double pt2, double pt3){
+    double eval1 = f(pt1);
+    double eval2 = f(pt2);
+    double eval3 = f(pt3);
+    //return and whatnot
+}
+```
+Can also pass a pointer to a function
+```C
+eval_three_times(double (*f)(double f_arg), double pt1, double pl2, double pt3){/**/}
+```
+
+Stack overflow thread on [double pointers](https://stackoverflow.com/questions/5580761/why-use-double-indirection-or-why-use-pointers-to-pointers).
+
+Double pointers can be usefull to point to a pointer, like to hava function change its value. 
+If I want a function to manipulate the value of a pointer, for that change to persist I need to point to that pointer.
+```C
+void main(){
+    int num1 = 5;
+    int num2 = 10;
+    
+    int *num1p = &num1;
+    int *num2p = &num2;
+    int **numpp = &num1p;
+    
+    //numpp points to a pointer which points to num1
+    chance_pointer(num2p, numpp);
+    //numpp points to a pointer which points to num2
+    **numpp = 20;
+    //now num2 = 20;
+
+}
+
+void change_pointer(int *inp, int **outpp){
+    //dereferencing pointers is how changes are seen outside of the function
+    *outpp = inp;
+    
+    //without dereferencing, the change wont be seen outside of the function
+    //outpp = &inp;
+    return;
+}
+```
+
+### Dynamic Memory Allocation
+
+Stack: 
+- quick storage
+- last in, first out
+- fixed size
+- one per thread
+- typically used for local variables
+- should only be used for data whose size is known or small, since it's fixed
+ 
+Heap: 
+- slower than stack
+- uses pointers for locations
+- dynamic size, request from operating system
+- storage that persists between function calls
+- shared between threads for multithreading
+
+Memory allocation functions:
+* `maloc(sizeof(int))` allocates on number of bytes heap, returns null pointer
+* `calloc(n, sizeof(int))` allocates n * numberof bytes on heap, returns null pointer 
+To use the above functions, type cast the return to use that memory location
+```C
+char *string1 = (char *)calloc(str_size,sizeof(char));
+```
+
+Linked List: structure of linked "nodes" where each node points to the one following. Easiest way to access is using a recursive function. Ex:
+```C
+typedef struct node_s{
+    int num;
+    struct node_s *nextp;
+} node_t
+
+node_t *n1_p,*n2_p,*n3_p;
+n1_p = (node_t *)malloc(sizeof(node_t));
+n1p->num = 5;
+n2_p = (node_t *)malloc(sizeof(node_t));
+n2_p->num = 10;
+n1_p->nextp = n1_p;
+
+n2_p->num = 10;
+//OR
+n1_p->next->num = 10;
+```
+Can have multiple pointers stored in a node, usefull for things like creating a binary search tree
+
+Algorithm for a binary search tree:
+1. if tree is empty
+    - insert new item in tree's root node (hopefully its an element near the median of the values)
+2. else if the root's key matches new item's key
+    - skip insertion, duplicate
+3. else if the new item's key is smaller than the root's key
+    - insert new item in the root's left subtree
+4. else
+    - insert new item in the root's right subtree
