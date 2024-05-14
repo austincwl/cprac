@@ -1,0 +1,24 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/austin/local/cprac/6_linked_sorting/6_sorting_algorithms'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002FCC, symSize: 0x1A0 }
+  - { offsetInCU: 0xEB, offset: 0xEB, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100002FCC, symSize: 0x1A0 }
+  - { offsetInCU: 0x150, offset: 0x150, size: 0x8, addend: 0x0, symName: _gen_ran_ints, symObjAddr: 0x1A0, symBinAddr: 0x10000316C, symSize: 0x7C }
+  - { offsetInCU: 0x19E, offset: 0x19E, size: 0x8, addend: 0x0, symName: _arr_to_linked_list, symObjAddr: 0x21C, symBinAddr: 0x1000031E8, symSize: 0xEC }
+  - { offsetInCU: 0x216, offset: 0x216, size: 0x8, addend: 0x0, symName: _bubble_sort_list_opt, symObjAddr: 0x308, symBinAddr: 0x1000032D4, symSize: 0x104 }
+  - { offsetInCU: 0x29C, offset: 0x29C, size: 0x8, addend: 0x0, symName: _retTime, symObjAddr: 0x40C, symBinAddr: 0x1000033D8, symSize: 0x34 }
+  - { offsetInCU: 0x2D2, offset: 0x2D2, size: 0x8, addend: 0x0, symName: _bubble_sort_list, symObjAddr: 0x440, symBinAddr: 0x10000340C, symSize: 0xC0 }
+  - { offsetInCU: 0x34A, offset: 0x34A, size: 0x8, addend: 0x0, symName: _selection_sort_list, symObjAddr: 0x500, symBinAddr: 0x1000034CC, symSize: 0x190 }
+  - { offsetInCU: 0x3EC, offset: 0x3EC, size: 0x8, addend: 0x0, symName: _printLinkedList, symObjAddr: 0x690, symBinAddr: 0x10000365C, symSize: 0x58 }
+  - { offsetInCU: 0x42C, offset: 0x42C, size: 0x8, addend: 0x0, symName: _print_arr, symObjAddr: 0x6E8, symBinAddr: 0x1000036B4, symSize: 0x84 }
+  - { offsetInCU: 0x47A, offset: 0x47A, size: 0x8, addend: 0x0, symName: _bubble_sort, symObjAddr: 0x76C, symBinAddr: 0x100003738, symSize: 0xC0 }
+  - { offsetInCU: 0x4E4, offset: 0x4E4, size: 0x8, addend: 0x0, symName: _nth_ele_in_list, symObjAddr: 0x82C, symBinAddr: 0x1000037F8, symSize: 0x58 }
+  - { offsetInCU: 0x51A, offset: 0x51A, size: 0x8, addend: 0x0, symName: _swap_in_list, symObjAddr: 0x884, symBinAddr: 0x100003850, symSize: 0x234 }
+  - { offsetInCU: 0x592, offset: 0x592, size: 0x8, addend: 0x0, symName: _create_num_node, symObjAddr: 0xAB8, symBinAddr: 0x100003A84, symSize: 0x38 }
+  - { offsetInCU: 0x5C8, offset: 0x5C8, size: 0x8, addend: 0x0, symName: _printListHead, symObjAddr: 0xAF0, symBinAddr: 0x100003ABC, symSize: 0x78 }
+  - { offsetInCU: 0x5EC, offset: 0x5EC, size: 0x8, addend: 0x0, symName: _printNode, symObjAddr: 0xB68, symBinAddr: 0x100003B34, symSize: 0xF0 }
+  - { offsetInCU: 0x612, offset: 0x612, size: 0x8, addend: 0x0, symName: _nth_node, symObjAddr: 0xC58, symBinAddr: 0x100003C24, symSize: 0x7C }
+  - { offsetInCU: 0x648, offset: 0x648, size: 0x8, addend: 0x0, symName: _printNodes, symObjAddr: 0xCD4, symBinAddr: 0x100003CA0, symSize: 0x148 }
+  - { offsetInCU: 0x67D, offset: 0x67D, size: 0x8, addend: 0x0, symName: _add_branch_node, symObjAddr: 0xE1C, symBinAddr: 0x100003DE8, symSize: 0x10 }
+...
