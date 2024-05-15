@@ -4,34 +4,34 @@ Notes on Problem Solving and Program Design in C by Jeri R. Hanly and Elliot B. 
 
 ## Overview of C
 
-* 2 parts: proprocessor directives and the pain function
-    - Proprocessor directives: commands that give instructions to the C preprocessor, whose job it is to modity the text of a C program *before* it's compiled.
-        * begins with a `#` ex: `#include <stdio.h>` and `#define KMS_PER_MILE 1.609`
-        * `#define` is used for 'constant variables' and macros, what this actually does is replace the defined word with its value during compile
+2 parts: proprocessor directives and the pain function
+- Proprocessor directives: commands that give instructions to the C preprocessor, whose job it is to modity the text of a C program *before* it's compiled.
+    * begins with a `#` ex: `#include <stdio.h>` and `#define KMS_PER_MILE 1.609`
+    * `#define` is used for 'constant variables' and macros, what this actually does is replace the defined word with its value during compile
 
-* Operators
-    - `&` is the 'address-of' operator, tells you the adress of a variable ex: `&variable` tells you the location of `variable`
-    - `%` is the remainder operator
-    - type asking ex: `int n = (int)(9*0.5);`
-        * easy rounding: `int n = (int)(doubleVar + 0.5)
-    - `''` for char
-    - `""` for a string literal
+Operators
+- `&` is the 'address-of' operator, tells you the adress of a variable ex: `&variable` tells you the location of `variable`
+- `%` is the remainder operator
+- type asking ex: `int n = (int)(9*0.5);`
+    * easy rounding: `int n = (int)(doubleVar + 0.5)
+- `''` for char
+- `""` for a string literal
 
-* stdio.h
-    - `printf();` printing
-    - `scanf();` reading from console
-    - `printf("string %f", variable);` replaced %f with the value of the variable. 
-        * `%d` = int
-        * `%c` = char
-        * `%f` = double (printf)
-        * `%lf` = float (scanf)
-    - `scanf("%lf", &variable);` stored entered double into memory location (pointer or memory reference(shown))
-        * need to pass in a pointer for this as otherwise the function would only know the current value of that variable, not where to store the input
+stdio.h
+- `printf();` printing
+- `scanf();` reading from console
+- `printf("string %f", variable);` replaced %f with the value of the variable. 
+    * `%d` = int
+    * `%c` = char
+    * `%f` = double (printf)
+    * `%lf` = float (scanf)
+- `scanf("%lf", &variable);` stored entered double into memory location (pointer or memory reference(shown))
+    * need to pass in a pointer for this as otherwise the function would only know the current value of that variable, not where to store the input
     
-* Error Types
-    - syntax
-    - Run-time: errors found during execution, crashes
-    - logic: programs runs fine but doesn't get required outcome
+Error Types
+- syntax
+- Run-time: errors found during execution, crashes
+- logic: programs runs fine but doesn't get required outcome
     
 ## Chapter 3: Top-Down Design with Functions
 
@@ -88,8 +88,10 @@ switch(varLetter){
 ```
 
 ## Chapter 5: Repetition and Loop Statements
-- same for and while loops as C++
-- do while executes 1 loop before evaluating condition
+
+same for and while loops as C++
+
+do while executes 1 loop before evaluating condition
 ```C
 do{
    //
@@ -180,19 +182,21 @@ void scan_fraction(int *nump, int *demonp)
 
 ## Chapter 7: Array Pointers
 
-* declare an empty array of size 8: `double x[8];`
-    - x is the address of the initial array element
-    - x's type is a pointer to a double
-* reference an element of an array using `[]`: `x[0] = 2.3;`
-* size can be ommitted from a fully initialized array: `int odds[] = {3,5,7,9};`
-    - works the same way for strings: `char letters[] = "letters";`
-* use memory reference to input to array from `scanf()`
+declare an empty array of size 8: `double x[8];`
+- x is the address of the initial array element
+- x's type is a pointer to a double
+reference an element of an array using `[]`: `x[0] = 2.3;`
+
+size can be ommitted from a fully initialized array: `int odds[] = {3,5,7,9};`
+- works the same way for strings: `char letters[] = "letters";`
+
+use memory reference to input to array from `scanf()`
 ```C
 for(int i = 0; i < 3; i++){
     scanf("%lf",&x[i]);
 }
 ```
-* to pass into function parameter, need to include size since the arrays are simply pointers
+to pass into function parameter, need to include size since the arrays are simply pointers
 ```C
 fill_array(int list[], int list_length){}
 //the below two lines are equivalent (but one is easier to read, really no need to do it the long way:
@@ -200,8 +204,8 @@ fill_array(x,5);
 fill_array(&x[0],5); //[0] dereferences it, & references it again
 ```
 
-* **C does not allow return values to be arrays**, need to use array address/pointer as an input parameter
-* can use `const` to describe input parameters that won't be changed in the function
+**C does not allow return values to be arrays**, need to use array address/pointer as an input parameter
+- can use `const` to describe input parameters that won't be changed in the function
 ```C
 void add_arrays(const double arr1[]; const double arr2[], double arrsum[], const int n){
     /* add arrays*/
@@ -210,16 +214,17 @@ void add_arrays(const double arr1[]; const double arr2[], double arrsum[], const
 }
 ```
 
-* can use an array for a *stack* by keepin track of the location (index) of the last element and the max size
-    - push (add to top of stack)
-    - pop (remove from top of stack)
+can use an array for a *stack* by keepin track of the location (index) of the last element and the max size
+- push (add to top of stack)
+- pop (remove from top of stack)
     
 ### 7.6 Searching and Sorting
 
-- can search and array w/ a simple for loop
-- selection sort is fairly intuitive but inefficient:
-    1. find smallest element, place at 0
-    2. find next smallest element, place at 1... etc
+can search and array w/ a simple for loop
+
+selection sort is fairly intuitive but inefficient:
+1. find smallest element, place at 0
+2. find next smallest element, place at 1... etc
 
 ### 7.7 Parallel Arrays and Enumerator Types
 
@@ -243,8 +248,9 @@ Enumarated Types:
 
 ### 7.8 Multidimensional Arrays
 
-- arrays can be 2 or more dimensions
-- initialize a 3x3 array of char: `char tictac[3][3];
+arrays can be 2 or more dimensions
+
+initialize a 3x3 array of char: `char tictac[3][3];
 ```
         col
     _____________
@@ -255,8 +261,9 @@ row |   |   |   |
     |   |   |   |
     _____________
 ```
-- when initializing multidimensional arrays, the 1st dimension, number of rows, can be omitted (pointer to single space): `char tictac[][3];`
-- can fully initialize:
+when initializing multidimensional arrays, the 1st dimension, number of rows, can be omitted (pointer to single space): `char tictac[][3];`
+
+can fully initialize:
 ```C
 char tictac[3][3] = {
                         {'','',''},
@@ -617,6 +624,7 @@ Heap:
 Memory allocation functions:
 * `maloc(sizeof(int))` allocates on number of bytes heap, returns null pointer
 * `calloc(n, sizeof(int))` allocates n * numberof bytes on heap, returns null pointer 
+* `free(ptr)` frees the memory in the heap pointed to by the pointer. (don't need to specify sizeof since the pointer will have a type)
 To use the above functions, type cast the return to use that memory location
 ```C
 char *string1 = (char *)calloc(str_size,sizeof(char));
